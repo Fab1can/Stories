@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View, TouchableHighlight, Alert } from "react-native";
+import { StyleSheet, Text, View, TouchableHighlight, Alert } from "react-native";
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 
@@ -19,14 +19,14 @@ export default class StoryViewScreen extends Component {
         <View style={styles.map}>
         {
           this.names.map(function(name, index){
-            return <Text>{name}</Text>;
+            return <Text key={index}>{name}</Text>;
           })
         }
         </View>
         <View style={styles.bottombar}>
           <TouchableHighlight style={styles.btn_new} onPress={() => this.props.navigation.navigate('Write')}>
             <Text style={styles.text_new}>
-              Nuovooooooooooooo
+              Nuovo
             </Text>
           </TouchableHighlight>
         </View>
@@ -54,11 +54,17 @@ const styles = StyleSheet.create({
     flex : 5,
   },
   btn_new: {
-    backgroundColor: 'grey',
+    backgroundColor: '#aaa',
     flex: 0.7,
+    height: 60,
+    borderRadius: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+
   },
   text_new: {
-    color:'black'
+    color:'black',
+    fontSize : 50,
   }
 
 });
